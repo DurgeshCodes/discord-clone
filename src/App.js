@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Chat from "./components/Chat/Chat";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Login from "./components/Login/Login";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./Store/user";
+import { useEffect } from "react";
+import { auth } from "./firebase";
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  console.log(user);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          login({
+            id: authUser.uid,
+            photo: authUser.photoURL,
+            name: authUser.displayName,
+            email: authUser.email,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {user !== null ? (
+        <>
+          <Sidebar />
+          <Chat />
+        </>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }

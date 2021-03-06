@@ -1,0 +1,25 @@
+.voice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+  border-top: 1px solid gray;
+  padding: 10px;
+}
+.voiceInfo {
+  flex: 1;
+  padding: 10px;
+}
+
+.voiceIcon {
+  color: #4fb185;
+}
+.voiceInfo > h3 {
+  color: #4fb185;
+}
+.voiceInfo > p {
+  font-size: smaller;
+}
+.voiceIcons > .MuiSvgIcon-root {
+  padding: 10px;
+}

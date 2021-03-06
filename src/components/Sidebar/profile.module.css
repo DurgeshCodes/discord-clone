@@ -1,0 +1,18 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+  border-top: 1px solid gray;
+  padding: 10px;
+}
+.profileInfo {
+  flex: 1;
+  padding: 10px;
+}
+.profileInfo > h3 {
+  color: white;
+}
+.Icons > .MuiSvgIcon-root {
+  padding: 10px;
+}

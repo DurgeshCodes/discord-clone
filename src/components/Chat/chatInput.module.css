@@ -1,0 +1,28 @@
+.input {
+  display: flex;
+  color: lightgray;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px;
+  border-top: 1px solid gray;
+  background-color: #474b53;
+}
+.input > form > input {
+  padding: 15px;
+  background: transparent;
+  border: none;
+  outline-width: 0;
+  color: white;
+  font-size: large;
+}
+.input > form {
+  flex: 1;
+}
+.inputButton {
+  display: none;
+}
+.Icon {
+  padding: 5px;
+}
